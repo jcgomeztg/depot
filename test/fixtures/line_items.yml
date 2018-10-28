@@ -5,7 +5,11 @@ one:
   product: rails
   cart_id: 1
   cart: one
+  quantity: 1
 
 two:
+  product_id: 2
   product: ruby
+  cart_id: 2
   cart: two
+  quantity: 1

@@ -3,6 +3,7 @@ require 'test_helper'
 class LineItemsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @line_item = line_items(:one)
+    @product = products(:ruby)
   end
 
   test "should get index" do
@@ -12,7 +13,7 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create line_item" do
     assert_difference('LineItem.count') do
-      post line_items_url, params: { cart_id: @line_item.cart_id, product_id: @line_item.product_id }, as: :json
+      post line_items_url, params: { cart_id: @line_item.cart_id, product_id: @product.id, quantity: 1 }, as: :json
     end
 
     assert_response 201

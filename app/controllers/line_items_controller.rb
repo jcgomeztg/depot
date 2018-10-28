@@ -17,7 +17,13 @@ class LineItemsController < ApplicationController
   def create
     cart = Cart.find(params[:cart_id])
     product = Product.find(params[:product_id])
-    @line_item = cart.line_items.build(product: product)
+    @line_item = LineItem.find_by(cart_id: params[:cart_id], product_id: params[:product_id])
+    if @line_item
+      @line_item.quantity = 1 unless @line_item.quantity?
+      @line_item.quantity += 1
+    else
+      @line_item = cart.line_items.build(product: product)
+    end
 
     if @line_item.save
       render json: @line_item, status: :created, location: @line_item
