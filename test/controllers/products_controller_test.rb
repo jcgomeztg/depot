@@ -3,6 +3,7 @@ require 'test_helper'
 class ProductsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @product = products(:rails)
+    @ruby2 = products(:ruby2)
   end
 
   test "should get index" do
@@ -30,7 +31,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test "should destroy product" do
     assert_difference('Product.count', -1) do
-      delete product_url(@product), as: :json
+      delete product_url(@ruby2), as: :json
     end
 
     assert_response 204

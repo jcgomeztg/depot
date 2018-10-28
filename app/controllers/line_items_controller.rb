@@ -15,7 +15,9 @@ class LineItemsController < ApplicationController
 
   # POST /line_items
   def create
-    @line_item = LineItem.new(line_item_params)
+    cart = Cart.find(params[:cart_id])
+    product = Product.find(params[:product_id])
+    @line_item = cart.line_items.build(product: product)
 
     if @line_item.save
       render json: @line_item, status: :created, location: @line_item

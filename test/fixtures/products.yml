@@ -11,3 +11,9 @@ ruby:
   description: "some cool description"
   image_url: "ruby.png"
   price: 9.99
+
+ruby2:
+  title: "Ruby programming"
+  description: "some cool description"
+  image_url: "ruby.png"
+  price: 9.99
